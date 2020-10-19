@@ -11,7 +11,7 @@ set splitright
 set clipboard=unnamedplus
 set background=dark
 set autochdir
-set formatoptions-=cro
+set formatoptions=cro
 
 " Disable foldcolumn
 set nofoldenable
