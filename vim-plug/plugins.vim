@@ -34,4 +34,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Autosave
     Plug '907th/vim-auto-save'
 
+    " Show Diff
+    Plug 'airblade/vim-gitgutter'
+
 call plug#end()

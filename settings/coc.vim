@@ -8,5 +8,6 @@ let g:coc_global_extensions = [
 \   'coc-go',
 \   'coc-ultisnips',
 \   'coc-highlight',
-\   'coc-omnisharp'
+\   'coc-omnisharp',
+\   'coc-deno'
 \ ]
