@@ -1,4 +1,5 @@
 {
+        "tabnine.priority": 200,
         "suggest.maxCompleteItemCount": 10,
         "suggest.noselect": false,
         "prettier.formatterPriority": 1,
