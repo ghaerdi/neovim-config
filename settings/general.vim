@@ -1,5 +1,5 @@
 set number relativenumber
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 
 set laststatus=0
 set nowrap
@@ -9,7 +9,6 @@ set ruler
 set mouse=a
 set splitbelow
 set splitright
-set clipboard=unnamedplus
 set background=dark
 set autochdir
 set formatoptions=cro
