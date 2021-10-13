@@ -1,8 +1,6 @@
 {
   "suggest.maxCompleteItemCount": 10,
   "suggest.noselect": false,
-  "prettier.formatterPriority": 1,
-  "prettier.arrowParens": "avoid",
   "diagnostic.displayByAle": true,
   "diagnostic.errorSign": "✕",
   "diagnostic.warningSign": "⚠",
