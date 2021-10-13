@@ -37,4 +37,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Show Diff
     Plug 'airblade/vim-gitgutter'
 
+    " EditorConfig
+    Plug 'editorconfig/editorconfig-vim'
+
 call plug#end()
