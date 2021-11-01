@@ -16,13 +16,17 @@ map <C-n> :NERDTreeToggle<CR>
 " Open fzf
 map <C-f> :Files<CR>
 map <C-b> :Buffers<CR>
+map <C-p> :Rg<CR>
 
 " COC
 map <silent> gd <Plug>(coc-definition)
-map <silent> gy <Plug>(coc-type-definition)
+map <silent> gt <Plug>(coc-type-definition)
 map <silent> gi <Plug>(coc-implementation)
 map <silent> gr <Plug>(coc-references)
 
 " Prettier
-vmap <S-f>  :CocCommand prettier.formatFile<CR>
-nmap <S-f>  :CocCommand prettier.formatFile<CR>
+map <silent> cf :CocCommand prettier.formatFile<CR>
+
+" Press * or # to search cursor word, then press /r and type a new text
+" to replace it
+nnoremap <Leader>r :%s///g<Left><Left>
