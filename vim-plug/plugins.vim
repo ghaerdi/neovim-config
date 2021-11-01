@@ -44,4 +44,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Search
     Plug 'haya14busa/is.vim'
 
+    " Share code
+    Plug 'kristijanhusak/vim-carbon-now-sh'
+
 call plug#end()
