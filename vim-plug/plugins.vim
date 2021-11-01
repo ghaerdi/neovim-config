@@ -44,7 +44,4 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Search
     Plug 'haya14busa/is.vim'
 
-    " Debug
-    Plug 'puremourning/vimspector'
-
 call plug#end()
