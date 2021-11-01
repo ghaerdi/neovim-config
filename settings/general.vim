@@ -40,3 +40,5 @@ syntax enable
 filetype on
 filetype indent on
 filetype plugin on
+
+let g:rust_recommended_style = 0

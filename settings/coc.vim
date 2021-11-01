@@ -7,7 +7,7 @@ let g:coc_global_extensions = [
 \   'coc-go',
 \   'coc-ultisnips',
 \   'coc-highlight',
-\   'coc-rls',
+\   'coc-rust-analyzer',
 \ ]
 
 autocmd FileType python let b:coc_suggest_disable = 1
