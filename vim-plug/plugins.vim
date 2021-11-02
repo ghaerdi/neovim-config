@@ -11,8 +11,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'ryanoasis/vim-devicons'
     Plug 'Yggdroot/indentLine'
-    Plug 'dracula/vim'
+
+    " Themes
     Plug 'wadackel/vim-dogrun'
+    Plug 'morhetz/gruvbox'
+    Plug 'drewtempelmeyer/palenight.vim'
 
     " File Explorer
     Plug 'scrooloose/NERDTree'

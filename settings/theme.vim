@@ -5,13 +5,11 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
-" Dracula
-" colorscheme dracula
-" let g:airline_theme = 'dracula'
-
-" Dogrun
-colorscheme dogrun
-let g:airline_theme = 'dracula'
+" Themes
+colorscheme palenight
+" gruvbox, dogrun, palenight
+let g:airline_theme = 'palenight'
+" gruvbox, palenight
 
 " Transparent background
 hi Normal guibg=NONE ctermbg=NONE
