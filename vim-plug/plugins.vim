@@ -46,6 +46,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Search
     Plug 'haya14busa/is.vim'
+    Plug 'mhinz/vim-grepper'
 
     " Share code
     Plug 'kristijanhusak/vim-carbon-now-sh'
