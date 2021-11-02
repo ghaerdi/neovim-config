@@ -1,7 +1,10 @@
-" Tab like VSCode
+" Indent like VSCode
 nnoremap <Tab> >>
 nnoremap <S-Tab> <<
 inoremap <S-Tab> <C-d>
+
+" Indent
+nnoremap <Leader>t gg=G
 
 " Buffer navigation
 nnoremap <silent> <A-j> :bn<CR>
@@ -25,7 +28,7 @@ map <silent> gi <Plug>(coc-implementation)
 map <silent> gr <Plug>(coc-references)
 
 " Prettier
-map <silent> cf :CocCommand prettier.formatFile<CR>
+nnoremap <Leader>f :CocCommand prettier.formatFile<CR>
 
 " Press * or # to search cursor word, then press /r and type a new text
 " to replace it
