@@ -51,4 +51,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Share code
     Plug 'kristijanhusak/vim-carbon-now-sh'
 
+    " Which key
+    Plug 'liuchengxu/vim-which-key'
+
 call plug#end()

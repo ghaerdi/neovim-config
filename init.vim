@@ -7,3 +7,4 @@ source $HOME/.config/nvim/settings/keybindings.vim
 source $HOME/.config/nvim/settings/nerdtree.vim
 source $HOME/.config/nvim/settings/theme.vim
 source $HOME/.config/nvim/settings/carbon.vim
+source $HOME/.config/nvim/settings/which_key.vim

@@ -19,7 +19,7 @@ map <C-n> :NERDTreeToggle<CR>
 " Open fzf
 map <C-f> :Files<CR>
 map <C-b> :Buffers<CR>
-map <C-p> :Rg<CR>
+nnoremap <Leader>f :Rg<CR>
 
 " COC
 map <silent> gd <Plug>(coc-definition)
@@ -28,7 +28,7 @@ map <silent> gi <Plug>(coc-implementation)
 map <silent> gr <Plug>(coc-references)
 
 " Prettier
-nnoremap <Leader>f :CocCommand prettier.formatFile<CR>
+nnoremap <Leader>F :CocCommand prettier.formatFile<CR>
 
 " Press * to search for the term under the cursor or a visual selection and
 " then press a key below to replace all instances of it in the current file.
@@ -50,3 +50,7 @@ xmap <Leader>R
   \ gvgr
   \ :cfdo %s/<C-r>s//g \| update
   \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+
+" Which key
+nnoremap <silent> <Space> :silent WhichKey '<Space>'<CR>
+vnoremap <silent> <Space> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
