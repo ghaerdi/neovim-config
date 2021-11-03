@@ -1,7 +1,3 @@
-" Map leader to which_key
-
-set timeoutlen=500
-
 " Create map to add keys to
 let g:which_key_map =  {}
 " Define a separator
@@ -29,7 +25,7 @@ let g:which_key_map['T'] = [ 'gg=G'                           , 'indent current 
 let g:which_key_map['t'] = [ ':Rg'                            , 'find text' ]
 let g:which_key_map['f'] = [ ':Files'                         , 'find file' ]
 let g:which_key_map['b'] = [ ':Buffers'                       , 'find buffer' ]
-let g:which_key_map['n'] = [ ':NERDTreeToggle'                , 'split right']
+let g:which_key_map['n'] = [ ':NERDTreeToggle'                , 'toggle nerd tree']
 
 " s is for search
 let g:which_key_map.s = {

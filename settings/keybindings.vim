@@ -1,9 +1,9 @@
-" Indent like VSCode
+" Indent
 nnoremap <Tab> >>
 nnoremap <S-Tab> <<
 inoremap <S-Tab> <C-d>
-
-" Indent
+vmap <Tab> >>
+vmap <S-Tab> <<
 nnoremap <Leader>t gg=G
 
 " Buffer navigation
@@ -19,7 +19,7 @@ map <C-n> :NERDTreeToggle<CR>
 " Open fzf
 map <C-f> :Files<CR>
 map <C-b> :Buffers<CR>
-nnoremap <Leader>f :Rg<CR>
+nnoremap <Leader>t :Rg<CR>
 
 " COC
 map <silent> gd <Plug>(coc-definition)
