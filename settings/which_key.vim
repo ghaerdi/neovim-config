@@ -30,7 +30,6 @@ let g:which_key_map['t'] = [ ':Rg'                            , 'find text' ]
 let g:which_key_map['f'] = [ ':Files'                         , 'find file' ]
 let g:which_key_map['b'] = [ ':Buffers'                       , 'find buffer' ]
 let g:which_key_map['n'] = [ ':NERDTreeToggle'                , 'split right']
-" let g:which_key_map['S'] = [ ':Startify'                  , 'start screen' ]
 
 " s is for search
 let g:which_key_map.s = {
