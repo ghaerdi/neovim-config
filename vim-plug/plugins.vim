@@ -16,6 +16,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'wadackel/vim-dogrun'
     Plug 'morhetz/gruvbox'
     Plug 'drewtempelmeyer/palenight.vim'
+    Plug 'arcticicestudio/nord-vim'
+    Plug 'mhartington/oceanic-next'
 
     " File Explorer
     Plug 'scrooloose/NERDTree'
