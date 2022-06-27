@@ -2,8 +2,9 @@
 let g:which_key_map =  {}
 " Define a separator
 let g:which_key_sep = '→'
-" set timeoutlen=100
 
+" By default timeoutlen is 1000 ms
+set timeoutlen=2000
 
 " Not a fan of floating windows for this
 let g:which_key_use_floating_win = 0
@@ -20,12 +21,26 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
       \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
 " Single mappings
-let g:which_key_map['F'] = [ ':CocCommand prettier.formatFile', 'format current file' ]
-let g:which_key_map['T'] = [ 'gg=G'                           , 'indent current file' ]
-let g:which_key_map['t'] = [ ':Rg'                            , 'find text' ]
-let g:which_key_map['f'] = [ ':Files'                         , 'find file' ]
-let g:which_key_map['b'] = [ ':Buffers'                       , 'find buffer' ]
-let g:which_key_map['n'] = [ ':NERDTreeToggle'                , 'toggle nerd tree']
+let g:which_key_map['F'] = [ ':CocCommand prettier.formatFile', 'Format current file' ]
+let g:which_key_map['T'] = [ 'gg=G'                           , 'Indent current file' ]
+let g:which_key_map['.'] = [ ':Files'                         , 'Find file' ]
+let g:which_key_map[','] = [ ':Buffers'                       , 'Find buffer' ]
+let g:which_key_map['n'] = [ ':NERDTreeToggle'                , 'Toggle nerd tree' ]
+
+" file
+let g:which_key_map.f = {
+      \ 'name' : '+file'                          ,
+      \ 'D' : [':!rm %'     , 'Delete this file'] ,
+      \ 'f' : [':Files'     , 'Find file']        ,
+      \ 'r' : [':Buffers'   , 'Recent files']     ,
+      \ 's' : [':w'         , 'Save file']        ,
+      \ }
+
+" toggle
+let g:which_key_map.t = {
+      \ 'name' : '+toggle'                                 ,
+      \ 't' : [':NERDTreeToggle'     , 'Toggle nerd tree'] ,
+      \ }
 
 " s is for search
 let g:which_key_map.s = {
@@ -56,23 +71,42 @@ let g:which_key_map.s = {
       \ 'z' : [':FZF'          , 'FZF']               ,
       \ }
 
+" Buffers
+let g:which_key_map.b = {
+      \ 'name' : '+buffer'                                   ,
+      \ '[' : [':bp'           , 'Previous buffer']          ,
+      \ ']' : [':bn'           , 'Next buffer']              ,
+      \ 'b' : [':Buffers'      , 'Switch buffer']            ,
+      \ 'B' : [':Buffers'      , 'Switch buffer']            ,
+      \ 'd' : [':bdelete'      , 'Kill buffer']              ,
+      \ 'k' : [':bdelete'      , 'Kill buffer']              ,
+      \ 'K' : [':%bdelete'     , 'Kill all buffers']         ,
+      \ 'l' : ['<C-^>'         , 'Switch to last buffer']    ,
+      \ 'n' : [':bn'           , 'Next buffer']              ,
+      \ 'O' : [':%bdelete|e#'  , 'Kill other buffers']       ,
+      \ 'p' : [':bp'           , 'Previous buffer']          ,
+      \ }
+
+" Windows
 let g:which_key_map.w = {
       \ 'name' : '+windows' ,
-      \ 'w' : ['<C-W>w'     , 'other-window']          ,
+      \ '=' : ['<C-W>='     , 'balance-windows']       ,
+      \ '?' : ['Windows'    , 'fzf-window']            ,
+      \ 'c' : ['<C-W>c'     , 'delete-window']         ,
       \ 'd' : ['<C-W>c'     , 'delete-window']         ,
+      \ 'h' : ['<C-W>h'     , 'window-left']           ,
+      \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
+      \ 'j' : ['<C-W>j'     , 'window-below']          ,
+      \ 'J' : [':resize +5' , 'expand-window-below']   ,
+      \ 'k' : ['<C-W>k'     , 'window-up']             ,
+      \ 'K' : [':resize -5' , 'expand-window-up']      ,
+      \ 'l' : ['<C-W>l'     , 'window-right']          ,
+      \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
+      \ 'O' : ['<C-W>o'     , 'close other windows']   ,
       \ 's' : ['<C-W>s'     , 'split-window-below']    ,
       \ 'v' : ['<C-W>v'     , 'split-window-right']    ,
-      \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
-      \ 'h' : ['<C-W>h'     , 'window-left']           ,
-      \ 'j' : ['<C-W>j'     , 'window-below']          ,
-      \ 'l' : ['<C-W>l'     , 'window-right']          ,
-      \ 'k' : ['<C-W>k'     , 'window-up']             ,
-      \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
-      \ 'J' : [':resize +5' , 'expand-window-below']   ,
-      \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
-      \ 'K' : [':resize -5' , 'expand-window-up']      ,
-      \ '=' : ['<C-W>='     , 'balance-window']        ,
-      \ '?' : ['Windows'    , 'fzf-window']            ,
+      \ 'w' : ['<C-W>w'     , 'next-window']           ,
+      \ 'W' : ['<C-W>W'     , 'prev-window']           ,
       \ }
 
 " Register which key map

@@ -4,5 +4,6 @@
   "diagnostic.displayByAle": true,
   "diagnostic.errorSign": "✕",
   "diagnostic.warningSign": "⚠",
-  "diagnostic.infoSign": "•"
+  "diagnostic.infoSign": "•",
+  "deno.importMap": "./import_map.json"
 }

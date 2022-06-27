@@ -43,15 +43,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
 
-    " EditorConfig
-    Plug 'editorconfig/editorconfig-vim'
-
     " Search
     Plug 'haya14busa/is.vim'
     Plug 'mhinz/vim-grepper'
-
-    " Share code
-    Plug 'kristijanhusak/vim-carbon-now-sh'
 
     " Which key
     Plug 'liuchengxu/vim-which-key'

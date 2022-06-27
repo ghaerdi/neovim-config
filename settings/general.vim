@@ -5,13 +5,11 @@ set laststatus=0
 set nowrap
 set encoding=utf-8
 set fileencoding=utf-8
-set ruler
 set mouse=a
 set splitbelow
 set splitright
-set background=dark
 set autochdir
-set formatoptions=cro
+" set formatoptions=cro
 
 " Disable foldcolumn
 set nofoldenable

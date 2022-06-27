@@ -10,9 +10,6 @@ nnoremap <Leader>t gg=G
 nnoremap <silent> <A-j> :bn<CR>
 nnoremap <silent> <A-k> :bp<CR>
 
-" Close current buffer
-map <C-d> :bdelete<CR>
-
 " Toggle NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
