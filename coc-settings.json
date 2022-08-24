@@ -1,9 +1,0 @@
-{
-  "suggest.maxCompleteItemCount": 10,
-  "suggest.noselect": false,
-  "diagnostic.displayByAle": true,
-  "diagnostic.errorSign": "✕",
-  "diagnostic.warningSign": "⚠",
-  "diagnostic.infoSign": "•",
-  "deno.importMap": "./import_map.json"
-}
