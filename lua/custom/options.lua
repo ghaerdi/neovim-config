@@ -12,3 +12,4 @@ opt.autoindent = true
 opt.hlsearch = true -- highlight all matches on previous search pattern
 opt.ignorecase = true -- ignore case in search patterns
 opt.autoindent = true
+opt.wrap = false
