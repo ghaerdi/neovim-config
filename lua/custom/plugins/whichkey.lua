@@ -11,6 +11,25 @@ local telescope_find_files = function(show_all)
   })
 end
 
+-- local split = function(value, separator)
+--   local result = {}
+--   for str in string.gmatch(value, "([^"..separator.."]+)") do
+--     table.insert(result, str)
+--   end
+--   return result
+-- end
+--
+-- local currect_directory = function ()
+--   local buffer_path = vim.fn.expand("%")
+--   local splited_path = split(buffer_path, "/")
+--   table.remove(splited_path)
+--   local buffer_dir = table.concat(splited_path, "/") .. "/"
+--
+--   local result = ":!mv % "  .. buffer_dir
+--   print(result)
+--   return result
+-- end
+
 local delete_current_file = function()
   cmd("!rm %")
   cmd("bd")
@@ -25,11 +44,8 @@ M.register = function()
 
 	wk.register({
 		["<leader>"] = {
-      -- ["<TAB>"] = {
-      --   name = "workspaces",
-      -- },
-
-      ["."] = { function() telescope_find_files(false) end, "Find files" },
+      [">"] = { function() telescope_find_files(false) end, "Find files in project" },
+      ["."] = { "<cmd> Telescope fd <CR>", "Find files" },
       [","] = { "<cmd> Telescope buffers <CR>", "Switch buffer" },
 
       b = {
@@ -47,70 +63,44 @@ M.register = function()
         p = { "<cmd>bn<CR>", "Next buffer"},
       },
 
-      -- c = {
-      --   name = "code",
-      -- },
+      c = {
+        name = "code",
+        x = { "<cmd>Telescope diagnostics<CR>", "show errors"},
+        t = { "<cmd>Telescope treesitter<CR>", "Treesitter" },
+				w = { "<cmd>Telescope grep_string<cr>", "grep word under cursor" },
+      },
 
 			f = {
 				name = "file",
 				a = { function() telescope_find_files(true) end, "all files in project" },
-        d = { "<cmd>Telescope fd<CR>", "find files in directory" },
         D = { delete_current_file, "delete this file" },
-        f = { function() telescope_find_files(false) end, "Find files" },
-				-- g = { "", "live grep" },
-				-- h = { "help pages" },
-				-- o = { "old files" },
-				-- p = { "<cmd>Telescope projects<cr>", "projects" },
-				-- s = { "<cmd>Telescope symbols<cr>", "symbols" },
-				-- w = { "<cmd>Telescope grep_string<cr>", "grep word under cursor" },
-				-- x = {
-				-- 	name = "other",
-				-- 	a = { "<cmd>Telescope autocommands<cr>", "vim autocommands" },
-				-- 	c = { "<cmd>Telescope commands<cr>", "vim commands" },
-				-- 	e = { "<cmd>Telescope env<cr>", "environment vars" },
-				-- 	k = { "<cmd>Telescope keymaps<cr>", "normal mode keymaps" },
-				-- 	o = { "<cmd>Telescope vim_options<cr>", "vim options" },
-				-- },
+        f = { "<cmd> Telescope fd <CR>", "Find files" },
+        t = { "<cmd>Telescope treesitter<CR>", "Treesitter" },
+				w = { "<cmd>Telescope grep_string<cr>", "grep word under cursor" },
+				p = { function() telescope_find_files(false) end, "Find files in project" },
+				P = { function() telescope_find_files(true) end, "all files in project" },
+        -- r = { currect_directory, "Rename/move current buffer"}
 			},
 
 			g = {
 				name = "git",
 				b = { "<cmd> Telescope git_branches <CR>", "branches" },
 				c = { "<cmd> Telescope git_commits <CR>", "commits" },
+				C = { "<cmd> Telescope git_commits <CR>", "see commits of current buffer" },
 				s = { "<cmd> Telescope git_status <CR>", "status" },
+				S = { "<cmd> Telescope git_stash <CR>", "stash" },
 			},
 
-      -- h = {
-      --   name = "help"
-      -- },
+      s = {
+        name = "search",
+        d = { "<cmd> Telescope live_grep <CR>", "Search current directory"},
+				w = { "<cmd>Telescope grep_string<cr>", "grep word under cursor" },
+      },
 
-      -- i = {
-      --   name = "insert"
-      -- },
-
-      -- n = {
-      --   name = "notes"
-      -- },
-
-      -- o = {
-      --   name = "open"
-      -- },
-
-      -- p = {
-      --   name = "project"
-      -- },
-
-      -- q = {
-      --   name = "quit/session"
-      -- },
-
-      -- s = {
-      --   name = "search"
-      -- },
-
-      -- t = {
-      --   name = "toggle"
-      -- },
+      t = {
+        name = "toggle",
+        t = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
+      },
 
       w = {
         name = "window",
