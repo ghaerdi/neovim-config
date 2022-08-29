@@ -29,21 +29,9 @@ M.user = {
   },
 
   ["williamboman/mason.nvim"] = {
-    ensure_installed = {
-      -- web
-      "html-lsp",
-      "css-lsp",
-      "emmet-ls",
-      "tailwindcss-language-server",
-      "typescript-language-server",
-      "json-lsp",
-
-      -- rust
-      "rust-analizer",
-
-      -- lua
-      "lua-language-server",
-    },
+    config = function()
+      require("custom.plugins.mason")
+    end,
   },
 
   ["kyazdani42/nvim-tree.lua"] = {
