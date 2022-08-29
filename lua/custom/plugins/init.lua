@@ -45,6 +45,17 @@ M.user = {
       "lua-language-server",
     },
   },
+
+  ["kyazdani42/nvim-tree.lua"] = {
+    ft = "alpha",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    config = function()
+      require("custom.plugins.nvimtree")
+    end,
+    setup = function()
+      require("core.utils").load_mappings("nvimtree")
+    end,
+  },
 }
 
 M.override = {
