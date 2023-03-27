@@ -14,7 +14,7 @@ require("mason-lspconfig").setup({
 		"rust_analyzer",
 
 		-- lua
-		"sumneko_lua",
+		"lua_ls",
 
 		-- others
 		"marksman",
