@@ -45,7 +45,7 @@ local servers = {
 	"rust_analyzer",
 
 	-- lua
-	"sumneko_lua",
+	"lua_ls",
 
 	-- others
 	"marksman",
@@ -70,9 +70,9 @@ vim.g.markdown_fenced_languages = {
 lspconfig.denols.setup {
   on_attach = on_attach,
 	capabilities = capabilities,
-  root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-	single_file_support = true
-}
+	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+	-- TODO: enable single file
+})
 
 lspconfig.tsserver.setup {
   on_attach = on_attach,
