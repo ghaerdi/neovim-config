@@ -77,6 +77,12 @@ lspconfig.denols.setup {
 lspconfig.tsserver.setup {
   on_attach = on_attach,
 	capabilities = capabilities,
-  root_dir = lspconfig.util.root_pattern("package.json"),
-	single_file_support = false
-}
+	root_dir = lspconfig.util.root_pattern("package.json"),
+	single_file_support = false,
+})
+
+lspconfig.volar.setup({
+	filetypes = { "vue" },
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
