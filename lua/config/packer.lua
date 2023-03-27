@@ -22,6 +22,7 @@ return require("packer").startup(function(use)
 	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
 	use("gen740/SmoothCursor.nvim")
 	use("karb94/neoscroll.nvim") -- smooth scroll
+	use("norcalli/nvim-colorizer.lua")
 
 	-- comment with gc
 	use("numToStr/Comment.nvim")
