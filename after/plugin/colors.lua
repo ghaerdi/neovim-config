@@ -24,34 +24,34 @@ require("gruvbox").setup({
 vim.cmd([[colorscheme gruvbox]])
 
 local hl = function(thing, opts)
-		vim.api.nvim_set_hl(0, thing, opts)
+	vim.api.nvim_set_hl(0, thing, opts)
 end
 
 local SCColor = "#FE8019" -- TODO: Use a color of the colorscheme to change the color automatically
 
 hl("SCCursorHead", {
-		bg = nil,
-		fg = SCColor
+	bg = nil,
+	fg = SCColor,
 })
 
 hl("SCCursor", {
-		bg = nil,
-		fg = SCColor
+	bg = nil,
+	fg = SCColor,
 })
 
 hl("GitSignsAdd", {
-		bg = nil,
-		fg = "#B8BB26"
+	bg = nil,
+	fg = "#B8BB26",
 })
 
 hl("GitSignsChange", {
-		bg = nil,
-		fg = "#8EC07C"
+	bg = nil,
+	fg = "#8EC07C",
 })
 
 hl("GitSignsDelete", {
-		bg = nil,
-		fg = "#FB4934"
+	bg = nil,
+	fg = "#FB4934",
 })
 
 -- hl("DiagnosticSignInfo", {
@@ -59,16 +59,16 @@ hl("GitSignsDelete", {
 -- })
 
 hl("DiagnosticSignWarn", {
-		bg = nil,
-		fg = "#FABD2F"
+	bg = nil,
+	fg = "#FABD2F",
 })
 
 hl("DiagnosticSignHint", {
-		bg = nil,
-		fg = "#8EC07C"
+	bg = nil,
+	fg = "#8EC07C",
 })
 
 hl("DiagnosticSignError", {
-		bg = nil,
-		fg = "#FB4934"
+	bg = nil,
+	fg = "#FB4934",
 })

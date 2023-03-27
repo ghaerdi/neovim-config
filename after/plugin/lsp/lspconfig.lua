@@ -64,18 +64,18 @@ for _, lsp in ipairs(servers) do
 end
 
 vim.g.markdown_fenced_languages = {
-  "ts=typescript"
+	"ts=typescript",
 }
 
-lspconfig.denols.setup {
-  on_attach = on_attach,
+lspconfig.denols.setup({
+	on_attach = on_attach,
 	capabilities = capabilities,
 	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 	-- TODO: enable single file
 })
 
-lspconfig.tsserver.setup {
-  on_attach = on_attach,
+lspconfig.tsserver.setup({
+	on_attach = on_attach,
 	capabilities = capabilities,
 	root_dir = lspconfig.util.root_pattern("package.json"),
 	single_file_support = false,

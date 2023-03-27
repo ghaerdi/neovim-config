@@ -5,7 +5,7 @@ end
 
 saga.setup({
 	lightbulb = {
-		enable = false
+		enable = false,
 	},
 
 	outline = {
@@ -14,11 +14,11 @@ saga.setup({
 
 	ui = {
 		colors = {
-			normal_bg = "#32302f"
-		}
+			normal_bg = "#32302f",
+		},
 	},
 
 	symbol_in_winbar = {
-    enable = false,
-  },
+		enable = false,
+	},
 })

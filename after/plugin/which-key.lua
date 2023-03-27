@@ -2,40 +2,75 @@ local wk = require("which-key")
 local cmd = vim.api.nvim_command
 
 local telescope_find_files = function(show_all)
-  local project_directory = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
-  require'telescope.builtin'.find_files({
-    cwd = project_directory,
-    no_ignore = show_all,
-    hidden = show_all,
-  })
+	local project_directory = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
+	require("telescope.builtin").find_files({
+		cwd = project_directory,
+		no_ignore = show_all,
+		hidden = show_all,
+	})
 end
 
 local delete_current_file = function()
-  cmd("!rm %")
-  cmd("bd")
+	cmd("!rm %")
+	cmd("bd")
 end
 
 wk.register({
 	["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
 
-	["<A-h>"] = { function() require("harpoon.ui").nav_file(1) end, "Navigate to file 1"},
-	["<A-j>"] = { function() require("harpoon.ui").nav_file(2) end, "Navigate to file 2"},
-	["<A-k>"] = { function() require("harpoon.ui").nav_file(3) end, "Navigate to file 3"},
-	["<A-l>"] = { function() require("harpoon.ui").nav_file(4) end, "Navigate to file 4"},
+	["<A-h>"] = {
+		function()
+			require("harpoon.ui").nav_file(1)
+		end,
+		"Navigate to file 1",
+	},
+	["<A-j>"] = {
+		function()
+			require("harpoon.ui").nav_file(2)
+		end,
+		"Navigate to file 2",
+	},
+	["<A-k>"] = {
+		function()
+			require("harpoon.ui").nav_file(3)
+		end,
+		"Navigate to file 3",
+	},
+	["<A-l>"] = {
+		function()
+			require("harpoon.ui").nav_file(4)
+		end,
+		"Navigate to file 4",
+	},
 	["<leader>"] = {
 		h = {
-			a = { function() require("harpoon.mark").add_file() end, "Add file"},
-			h = { function() require("harpoon.ui").toggle_quick_menu() end, "Toggle quick menu"},
+			a = {
+				function()
+					require("harpoon.mark").add_file()
+				end,
+				"Add file",
+			},
+			h = {
+				function()
+					require("harpoon.ui").toggle_quick_menu()
+				end,
+				"Toggle quick menu",
+			},
 		},
 
-		[">"] = { function() telescope_find_files(false) end, "Find files in project" },
+		[">"] = {
+			function()
+				telescope_find_files(false)
+			end,
+			"Find files in project",
+		},
 		["."] = { "<cmd> Telescope fd <CR>", "Find files" },
 		[","] = { "<cmd> Telescope buffers <CR>", "Switch buffer" },
 
 		b = {
 			name = "buffer",
 			["["] = { "<cmd>bp<CR>", "Previous buffer" },
-			["]"] = { "<cmd>bn<CR>", "Next buffer "},
+			["]"] = { "<cmd>bn<CR>", "Next buffer " },
 			b = { "<cmd>Telescope buffers<CR>", "Switch buffer" },
 			d = { "<cmd>bd<CR>", "Kill buffer" },
 			k = { "<cmd>bd<CR>", "Kill buffer" },
@@ -44,25 +79,40 @@ wk.register({
 			n = { "<cmd>bn<CR>", "Next buffer" },
 			N = { "<cmd>enew<CR>", "New buffer" },
 			O = { "<cmd>%bd|e#|bd#<CR>", "Kill other buffers" },
-			p = { "<cmd>bn<CR>", "Next buffer"},
+			p = { "<cmd>bn<CR>", "Next buffer" },
 		},
 
 		c = {
 			name = "code",
-			x = { "<cmd>Telescope diagnostics<CR>", "show errors"},
+			x = { "<cmd>Telescope diagnostics<CR>", "show errors" },
 			t = { "<cmd>Telescope treesitter<CR>", "Treesitter" },
 			w = { "<cmd>Telescope grep_string<cr>", "grep word under cursor" },
 		},
 
 		f = {
 			name = "file",
-			a = { function() telescope_find_files(true) end, "all files in project" },
+			a = {
+				function()
+					telescope_find_files(true)
+				end,
+				"all files in project",
+			},
 			D = { delete_current_file, "delete this file" },
 			f = { "<cmd> Telescope fd <CR>", "Find files" },
 			t = { "<cmd>Telescope treesitter<CR>", "Treesitter" },
 			w = { "<cmd>Telescope grep_string<cr>", "grep word under cursor" },
-			p = { function() telescope_find_files(false) end, "Find files in project" },
-			P = { function() telescope_find_files(true) end, "all files in project" },
+			p = {
+				function()
+					telescope_find_files(false)
+				end,
+				"Find files in project",
+			},
+			P = {
+				function()
+					telescope_find_files(true)
+				end,
+				"all files in project",
+			},
 			-- r = { currect_directory, "Rename/move current buffer"}
 		},
 
@@ -77,7 +127,7 @@ wk.register({
 
 		s = {
 			name = "search",
-			d = { "<cmd> Telescope live_grep <CR>", "Search current directory"},
+			d = { "<cmd> Telescope live_grep <CR>", "Search current directory" },
 			w = { "<cmd>Telescope grep_string<cr>", "grep word under cursor" },
 		},
 
