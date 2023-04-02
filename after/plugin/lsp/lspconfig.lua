@@ -40,6 +40,7 @@ local servers = {
 	"tailwindcss",
 	"eslint",
 	"svelte",
+	"astro",
 
 	-- rust
 	"rust_analyzer",
