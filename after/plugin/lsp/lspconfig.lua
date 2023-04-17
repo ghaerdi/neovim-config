@@ -2,7 +2,6 @@ local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local keymap = vim.keymap
 
--- TODO: Keymaps to whichkey
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
 	-- keybind options
