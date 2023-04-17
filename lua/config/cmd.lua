@@ -8,6 +8,7 @@ cmd([[
   augroup end
 ]])
 
+-- Preserve cursor position when opening files
 cmd([[
 	augroup LastPosition
 		autocmd!
