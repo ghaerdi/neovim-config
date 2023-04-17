@@ -54,6 +54,11 @@ hl("GitSignsDelete", {
 	fg = "#FB4934",
 })
 
+hl("GitBlame", {
+	bg = "#3C3836",
+	fg = "#5E554B",
+})
+
 -- hl("DiagnosticSignInfo", {
 -- 		bg = "none"
 -- })
