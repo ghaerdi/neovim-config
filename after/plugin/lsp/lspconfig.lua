@@ -20,6 +20,13 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
 	keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
 	keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts) -- see outline on right hand side
+
+	-- format modifications
+	if client.server_capabilities.documentRangeFormattingProvider then
+		local lsp_format_modifications = require("lsp-format-modifications")
+		lsp_format_modifications.attach(client, bufnr, { format_on_save = false })
+		keymap.set("n", "<A-S-f>", "<cmd>:FormatModifications<CR>", opts)
+	end
 end
 
 -- used to enable autocompletion (assign to every lsp server config)
