@@ -1,10 +1,10 @@
 require("smoothcursor").setup({
 	cursor = "", -- cursor shape (need nerd font)
 	texthl = "SCCursorHead", -- highlight group, default is { bg = nil, fg = "#FFD400" }
-	linehl = "cursorline", -- highlight sub-cursor line like 'cursorline', "CursorLine" recommended
+	linehl = nil, -- highlight sub-cursor line like 'cursorline', "CursorLine" recommended
 	type = "exp", -- define cursor movement calculate function, "default" or "exp" (exponential).
 	fancy = {
-		enable = false,
+		enable = true,
 		head = { cursor = "", texthl = "SCCursorHead" },
 		body = {
 			{ cursor = "●", texthl = "SCCursor" },

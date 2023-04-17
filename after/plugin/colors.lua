@@ -1,6 +1,9 @@
-vim.o.background = "dark" -- or "light" for light mode
+local gruvbox_status, gruvbox = pcall(require, "gruvbox")
+if not gruvbox_status then
+	return
+end
 
-require("gruvbox").setup({
+gruvbox.setup({
 	undercurl = true,
 	underline = true,
 	bold = true,
@@ -21,22 +24,22 @@ require("gruvbox").setup({
 	transparent_mode = true,
 })
 
+vim.o.background = "dark" -- or "light" for light mode
+
 vim.cmd([[colorscheme gruvbox]])
 
 local hl = function(thing, opts)
 	vim.api.nvim_set_hl(0, thing, opts)
 end
 
-local SCColor = "#FE8019" -- TODO: Use a color of the colorscheme to change the color automatically
-
 hl("SCCursorHead", {
 	bg = nil,
-	fg = SCColor,
+	fg = "#FE8019" -- TODO: use a color from colorscheme or pick a neutral color
 })
 
 hl("SCCursor", {
 	bg = nil,
-	fg = SCColor,
+	fg = "#B15911", -- TODO: use a color from colorscheme or pick a neutral color
 })
 
 hl("GitSignsAdd", {
@@ -55,13 +58,8 @@ hl("GitSignsDelete", {
 })
 
 hl("GitBlame", {
-	bg = "#3C3836",
 	fg = "#5E554B",
 })
-
--- hl("DiagnosticSignInfo", {
--- 		bg = "none"
--- })
 
 hl("DiagnosticSignWarn", {
 	bg = nil,
