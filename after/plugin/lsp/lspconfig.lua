@@ -45,6 +45,18 @@ local servers = {
 	-- rust
 	"rust_analyzer",
 
+	-- zig
+	"zls",
+
+	-- python
+	"pylsp",
+
+	-- go
+	"gopls",
+
+	-- .net core c#
+	"csharp_ls",
+
 	-- lua
 	"lua_ls",
 
@@ -68,11 +80,22 @@ vim.g.markdown_fenced_languages = {
 	"ts=typescript",
 }
 
+local deno_config_exists = function()
+	local deno_json = vim.fn.glob("deno.json")
+	local deno_jsonc = vim.fn.glob("deno.jsonc")
+	return deno_json ~= "" or deno_jsonc ~= ""
+end
+
+local package_json_exists = function()
+	local package_json = vim.fn.glob("package.json")
+	return package_json ~= ""
+end
+
 lspconfig.denols.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-	-- TODO: enable single file
+	single_file_support = not deno_config_exists() and not package_json_exists()
 })
 
 lspconfig.tsserver.setup({
