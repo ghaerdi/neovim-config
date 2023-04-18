@@ -1,5 +1,21 @@
-local lspconfig = require("lspconfig")
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local lspconfig_status, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status then
+	print("lspconfig not installed")
+	return
+end
+
+local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not cmp_nvim_lsp_status then
+	print("cmp_nvim_lsp not installed")
+	return
+end
+
+local lsp_format_modifications_status, lsp_format_modifications = pcall(require, "lsp-format-modifications")
+if not lsp_format_modifications_status then
+	print("lsp-format-modifications not installed")
+	return
+end
+
 local keymap = vim.keymap
 
 -- enable keybinds only for when lsp server available
@@ -23,7 +39,6 @@ local on_attach = function(client, bufnr)
 
 	-- format modifications
 	if client.server_capabilities.documentRangeFormattingProvider then
-		local lsp_format_modifications = require("lsp-format-modifications")
 		lsp_format_modifications.attach(client, bufnr, { format_on_save = false })
 		keymap.set("n", "<A-S-f>", "<cmd>:FormatModifications<CR>", opts)
 	end

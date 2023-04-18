@@ -1,4 +1,9 @@
-require("smoothcursor").setup({
+local smoothcursor_status, smoothcursor = pcall(require, "smoothcursor")
+if not smoothcursor_status then
+	return
+end
+
+smoothcursor.setup({
 	cursor = "", -- cursor shape (need nerd font)
 	texthl = "SCCursorHead", -- highlight group, default is { bg = nil, fg = "#FFD400" }
 	linehl = nil, -- highlight sub-cursor line like 'cursorline', "CursorLine" recommended

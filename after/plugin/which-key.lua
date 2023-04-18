@@ -1,9 +1,23 @@
-local wk = require("which-key")
+local which_key_status, which_key = pcall(require, "which-key")
+if not which_key_status then
+	return
+end
+
+local telescope_builtin_status, telescope_builtin = pcall(require, "telescope.builtin")
+if not telescope_builtin_status then
+	return
+end
+
+local harpoon_ui_status, harpoon_ui = pcall(require, "harpoon.ui")
+if not harpoon_ui_status then
+	return
+end
+
 local cmd = vim.api.nvim_command
 
 local telescope_find_files = function(show_all)
 	local project_directory = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
-	require("telescope.builtin").find_files({
+	telescope_builtin.find_files({
 		cwd = project_directory,
 		no_ignore = show_all,
 		hidden = show_all,
@@ -15,30 +29,30 @@ local delete_current_file = function()
 	cmd("bd")
 end
 
-wk.register({
+which_key.register({
 	["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
 
 	["<A-h>"] = {
 		function()
-			require("harpoon.ui").nav_file(1)
+			harpoon_ui.nav_file(1)
 		end,
 		"Navigate to file 1",
 	},
 	["<A-j>"] = {
 		function()
-			require("harpoon.ui").nav_file(2)
+			harpoon_ui.nav_file(2)
 		end,
 		"Navigate to file 2",
 	},
 	["<A-k>"] = {
 		function()
-			require("harpoon.ui").nav_file(3)
+			harpoon_ui.nav_file(3)
 		end,
 		"Navigate to file 3",
 	},
 	["<A-l>"] = {
 		function()
-			require("harpoon.ui").nav_file(4)
+			harpoon_ui.nav_file(4)
 		end,
 		"Navigate to file 4",
 	},
@@ -52,7 +66,7 @@ wk.register({
 			},
 			h = {
 				function()
-					require("harpoon.ui").toggle_quick_menu()
+					harpoon_ui.toggle_quick_menu()
 				end,
 				"Toggle quick menu",
 			},

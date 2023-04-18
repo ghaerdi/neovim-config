@@ -1,4 +1,9 @@
-require("telescope").setup({
+local telescope_status, telescope = pcall(require, "telescope")
+if not telescope_status then
+	return
+end
+
+telescope.setup({
 	defaults = {
 		vimgrep_arguments = {
 			"rg",
@@ -36,7 +41,6 @@ require("telescope").setup({
 		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
 		color_devicons = true,
 		set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-		-- Developer configurations: Not meant for general override
 	},
 
 	extensions_list = { "themes", "terms" },
