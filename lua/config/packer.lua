@@ -23,6 +23,7 @@ return require("packer").startup(function(use)
 	use("gen740/SmoothCursor.nvim")
 	use("karb94/neoscroll.nvim") -- smooth scroll
 	use("norcalli/nvim-colorizer.lua")
+	use("lukas-reineke/indent-blankline.nvim")
 
 	-- comment with gc
 	use("numToStr/Comment.nvim")
