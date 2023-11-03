@@ -1,5 +1,5 @@
-local indent_blankline_status, indent_blankline = pcall(require, "indent_blankline")
-if not indent_blankline_status then
+local ibl_status, ibl = pcall(require, "ibl")
+if not ibl_status then
 	return
 end
 
@@ -13,19 +13,25 @@ vim.opt.listchars = {
 	eol = "↴",
 }
 
-indent_blankline.setup({
-	buftype_exclude = { "terminal" },
-	filetype_exclude = { "help", "packer", "dashboard", "neogitstatus" },
-	show_end_of_line = true,
-	space_char_blankline = " ",
-	show_current_context = false,
-	show_current_context_start = false,
-	char_highlight_list = {
-		"GitBlame",
+ibl.setup({
+	exclude = {
+		buftypes = { "terminal" },
+		filetypes = { "help", "packer", "dashboard", "neogitstatus" },
 	},
-	space_char_highlight_list = {
-		"GitBlame",
+	scope = {
+		enabled = false,
+		highlight = {
+			"GitBlame",
+		}
 	},
-	-- show_first_indent_level = false,
-	-- show_trailing_blankline_indent = false,
+	indent = {
+		highlight = {
+			"GitBlame",
+		}
+	},
+	whitespace = {
+		highlight = {
+			"GitBlame",
+		}
+	}
 })

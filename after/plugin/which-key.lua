@@ -30,8 +30,6 @@ local delete_current_file = function()
 end
 
 which_key.register({
-	["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
-
 	["<A-h>"] = {
 		function()
 			harpoon_ui.nav_file(1)

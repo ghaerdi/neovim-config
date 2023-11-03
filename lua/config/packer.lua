@@ -36,6 +36,17 @@ return require("packer").startup(function(use)
 	use("hrsh7th/cmp-buffer") -- source for text in buffer
 	use("hrsh7th/cmp-path") -- source for file system paths
 	use("github/copilot.vim") -- github copilot
+	use({
+  "jackMort/ChatGPT.nvim",
+    config = function()
+      require("chatgpt").setup()
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+	})
 
 	-- snippets
 	use("L3MON4D3/LuaSnip") -- snippet engine
@@ -51,7 +62,7 @@ return require("packer").startup(function(use)
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
 	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
-	use("j-hui/fidget.nvim")
+	use({ "j-hui/fidget.nvim", tag = "legacy" })
 
 	-- formatting & linting
 	use("joechrisellis/lsp-format-modifications.nvim")
@@ -64,7 +75,7 @@ return require("packer").startup(function(use)
 	use("romgrk/nvim-treesitter-context")
 
 	-- telescope
-	use({ "nvim-telescope/telescope.nvim", tag = "0.1.0", requires = { "nvim-lua/plenary.nvim" } })
+	use({ "nvim-telescope/telescope.nvim", tag = "0.1.4", requires = { "nvim-lua/plenary.nvim" } })
 
 	-- auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...

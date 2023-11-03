@@ -4,4 +4,6 @@ if not fidget_status then
 	return
 end
 
-fidget.setup()
+fidget.setup({
+	window = { blend = 0 }
+})
