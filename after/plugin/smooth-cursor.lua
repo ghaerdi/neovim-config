@@ -1,3 +1,7 @@
+if vim.g.neovide then
+	return
+end
+
 local smoothcursor_status, smoothcursor = pcall(require, "smoothcursor")
 if not smoothcursor_status then
 	return
