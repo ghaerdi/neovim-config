@@ -88,8 +88,8 @@ return require("packer").startup(function(use)
 	-- blazingly fast file switching
 	use({ "ThePrimeagen/harpoon", requires = { "nvim-lua/plenary.nvim" } })
 
-	-- terminal
-	use("NvChad/nvterm")
+	-- tmux
+	use('christoomey/vim-tmux-navigator')
 
 	-- project directory tree
 	use({ "nvim-tree/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" } })
