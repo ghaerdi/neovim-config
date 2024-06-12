@@ -1,4 +1,4 @@
+require("config.lazy")
+require("config.keymaps")
 require("config.options")
 require("config.cmd")
-require("config.keymaps")
-require("config.packer")
