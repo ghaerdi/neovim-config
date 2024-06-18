@@ -20,19 +20,16 @@ mason_lspconfig.setup({
 		"eslint",
 		"svelte",
 
-		-- rust
-		"rust_analyzer",
-
-		-- lua
-		"lua_ls",
-
 		-- others
+		"rust_analyzer",
 		"marksman",
 		"dockerls",
+		"lua_ls",
 		"jsonls",
 		"yamlls",
 		"bashls",
 		"taplo",
+		"pylsp",
 	},
 
 	ui = {
