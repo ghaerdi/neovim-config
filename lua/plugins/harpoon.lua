@@ -1,7 +1,7 @@
 return {
 	"ThePrimeagen/harpoon",
 	dependencies = { "nvim-lua/plenary.nvim" },
-	config = function ()
+	config = function()
 		local harpoon_ui = require("harpoon.ui")
 		vim.keymap.set("n", "<leader>h", function()
 			harpoon_ui.toggle_quick_menu()
@@ -18,5 +18,5 @@ return {
 		vim.keymap.set("n", "<A-j>", nav_file(2))
 		vim.keymap.set("n", "<A-k>", nav_file(3))
 		vim.keymap.set("n", "<A-l>", nav_file(4))
-	end
+	end,
 }

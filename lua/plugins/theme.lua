@@ -12,6 +12,9 @@ return {
 				italic = {
 					strings = false,
 					operators = false,
+					comments = true,
+					folds = false,
+					emphasis = false,
 				},
 				strikethrough = true,
 				invert_selection = false,
@@ -29,24 +32,19 @@ return {
 				vim.api.nvim_set_hl(0, thing, opts)
 			end
 
-			hl("SCCursorHead", {
-				link = "GruvboxOrange"
-			})
-
-			hl("SCCursor", {
-				link = "GruvboxOrange"
-			})
+			hl("SCCursorHead", { link = "GruvboxOrange" })
+			hl("SCCursor", { link = "GruvboxOrange" })
 
 			vim.cmd.colorscheme("gruvbox")
-		end
+		end,
 	},
 	{
 		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" }
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 	{
 		"gen740/SmoothCursor.nvim",
-		config = function ()
+		config = function()
 			require("smoothcursor").setup({
 				cursor = "",
 				texthl = "SCCursorHead",
@@ -69,6 +67,6 @@ return {
 				threshold = 1, -- animate if threshold lines jump
 				disable_float_win = true, -- disable on float window
 			})
-		end
-	}
+		end,
+	},
 }

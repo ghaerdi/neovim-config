@@ -3,7 +3,7 @@ return {
 	tag = "legacy",
 	config = function()
 		require("fidget").setup({
-			window = { blend = 0 }
+			window = { blend = 0 },
 		})
-	end
+	end,
 }

@@ -3,20 +3,31 @@ return {
 	{
 		"L3MON4D3/LuaSnip",
 		dependencies = { "rafamadriz/friendly-snippets" },
-		config = function ()
+		config = function()
 			require("luasnip.loaders.from_vscode").lazy_load()
-		end
+		end,
 	},
+	{
+		"folke/lazydev.nvim",
+		ft = "lua",
+		opts = {
+			library = {
+				{ path = "luvit-meta/library", words = { "vim%.uv" } },
+			},
+		},
+	},
+	{ "Bilal2453/luvit-meta", lazy = true },
 	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
 			"saadparwaiz1/cmp_luasnip",
 			"onsails/lspkind.nvim",
+			"folke/lazydev.nvim",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"L3MON4D3/LuaSnip",
 		},
-		config = function ()
+		config = function()
 			vim.opt.completeopt = "menu,menuone,noselect"
 			local cmp = require("cmp")
 
@@ -39,6 +50,7 @@ return {
 				}),
 				-- sources for autocompletion
 				sources = cmp.config.sources({
+					{ name = "lazydev" }, -- lsp
 					{ name = "nvim_lsp" }, -- lsp
 					{ name = "luasnip" }, -- snippets
 					{ name = "buffer" }, -- text within current buffer
@@ -52,25 +64,25 @@ return {
 					}),
 				},
 			})
-		end
+		end,
 	},
 	{
 		"github/copilot.vim",
 		config = function()
-			vim.cmd[[imap <silent><script><expr> <C-a> copilot#Accept('\<CR>')]]
+			vim.cmd([[imap <silent><script><expr> <C-a> copilot#Accept('\<CR>')]])
 			vim.g.copilot_no_tab_map = true
-		end
+		end,
 	},
 	{
 		"windwp/nvim-autopairs",
 		config = function()
 			require("nvim-autopairs").setup()
-		end
+		end,
 	},
 	{
 		"windwp/nvim-ts-autotag",
-		config = function ()
+		config = function()
 			require("nvim-ts-autotag").setup()
-		end
+		end,
 	}, -- autoclose tags
 }

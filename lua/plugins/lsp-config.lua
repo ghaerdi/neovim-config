@@ -27,17 +27,17 @@ return {
 					"taplo",
 					"gopls",
 					"pylsp",
-					"zls"
+					"zls",
 				},
 				automatic_installation = true,
 			})
-		end
+		end,
 	},
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"joechrisellis/lsp-format-modifications.nvim",
-			"hrsh7th/cmp-nvim-lsp"
+			"hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()
 			local lspconfig = require("lspconfig")
@@ -48,29 +48,24 @@ return {
 				local opts = { noremap = true, silent = true, buffer = bufnr }
 
 				-- set keybinds
-				vim.keymap.set("n", "gf", "<cmd>Lspsaga finder<CR>", opts)                     -- show definition, references
-				vim.keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)      -- got to declaration
-				vim.keymap.set("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)       -- see definition and make edits in window
-				vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)   -- go to implementation
-				vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)        -- see available code actions
-				vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)             -- smart rename
+				vim.keymap.set("n", "gf", "<cmd>Lspsaga finder<CR>", opts) -- show definition, references
+				vim.keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
+				vim.keymap.set("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts) -- see definition and make edits in window
+				vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
+				vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
+				vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
 				vim.keymap.set("n", "<leader>d", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
 				vim.keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
-				vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)       -- jump to previous diagnostic in buffer
-				vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)       -- jump to next diagnostic in buffer
-				vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)                   -- show documentation for what is under cursor
-				vim.keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts)             -- see outline on right hand side
+				vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
+				vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
+				vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
+				vim.keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts) -- see outline on right hand side
 
 				-- format modifications
-				vim.api.nvim_buf_create_user_command(
-					bufnr,
-					"FormatModifications",
-					function()
-						local lsp_format_modifications = require "lsp-format-modifications"
-						lsp_format_modifications.format_modifications(client, bufnr)
-					end,
-					{}
-				)
+				vim.api.nvim_buf_create_user_command(bufnr, "FormatModifications", function()
+					local lsp_format_modifications = require("lsp-format-modifications")
+					lsp_format_modifications.format_modifications(client, bufnr)
+				end, {})
 			end
 
 			-- used to enable autocompletion (assign to every lsp server config)
@@ -132,7 +127,7 @@ return {
 				on_attach = on_attach,
 				capabilities = capabilities,
 				root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-				single_file_support = not deno_config_exists() and not package_json_exists()
+				single_file_support = not deno_config_exists() and not package_json_exists(),
 			})
 
 			lspconfig.tsserver.setup({
@@ -147,7 +142,7 @@ return {
 				on_attach = on_attach,
 				capabilities = capabilities,
 			})
-		end
+		end,
 	},
 	{
 		"nvimdev/lspsaga.nvim",
@@ -157,7 +152,7 @@ return {
 		},
 		config = function()
 			require("lspsaga").setup()
-		end
+		end,
 	},
 	{
 		"jay-babu/mason-null-ls.nvim",
@@ -170,7 +165,7 @@ return {
 		config = function()
 			local null_ls = require("null-ls")
 			require("mason-null-ls").setup({
-				ensure_installed = { "stylua", "prettier", "black", "isort", "eslint_d" }
+				ensure_installed = { "stylua", "prettier", "black", "isort", "eslint_d" },
 			})
 			null_ls.setup({
 				null_ls.builtins.formatting.stylua,

@@ -10,7 +10,7 @@ return {
 			enabled = false,
 		},
 	},
-	config = function ()
+	config = function()
 		vim.opt.list = true
 		vim.opt.listchars = {
 			space = "⋅",
@@ -20,5 +20,5 @@ return {
 			trail = "•",
 			eol = "↴",
 		}
-	end
+	end,
 }

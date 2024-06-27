@@ -2,7 +2,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		config = function ()
+		config = function()
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = "all",
 				indent = { enable = true },
@@ -11,11 +11,11 @@ return {
 					additional_vim_regex_highlighting = false,
 				},
 			})
-		end
+		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
-		config = function ()
+		config = function()
 			require("treesitter-context").setup({
 				enable = true,
 				throttle = true,
@@ -42,6 +42,6 @@ return {
 					},
 				},
 			})
-		end
+		end,
 	},
 }
