@@ -41,6 +41,9 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require('lualine').setup()
+		end
 	},
 	{
 		"gen740/SmoothCursor.nvim",
@@ -62,9 +65,9 @@ return {
 						{ cursor = "∙", texthl = "SCCursor" },
 					},
 				},
-				speed = 20, -- max is 100 to stick to your current position
-				intervals = 15, -- tick interval
-				threshold = 1, -- animate if threshold lines jump
+				speed = 20,           -- max is 100 to stick to your current position
+				intervals = 15,       -- tick interval
+				threshold = 1,        -- animate if threshold lines jump
 				disable_float_win = true, -- disable on float window
 			})
 		end,
