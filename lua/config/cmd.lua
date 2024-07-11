@@ -4,7 +4,7 @@ local cmd = vim.cmd
 cmd([[
   augroup YankHighlight
     autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup='Visual', timeout=300}
   augroup end
 ]])
 
