@@ -1,8 +1,34 @@
+local telescope_find_files = function(show_all)
+	local project_directory = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
+	require("telescope.builtin").find_files({
+		cwd = project_directory,
+		no_ignore = show_all,
+		hidden = show_all,
+	})
+end
+
 return {
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.8",
 		dependencies = { "nvim-lua/plenary.nvim" },
+		keys = {
+			{ "<leader>>",  function() telescope_find_files(true) end, desc = "Find files in project" },
+			{ "<leader>,",  "<cmd> Telescope buffers <CR>",            desc = "Switch buffer" },
+			{ "<leader>.",  "<cmd> Telescope fd <CR>",                 desc = "Find files" },
+			{ "<leader>bb", "<cmd> Telescope buffers <CR>",            desc = "Switch buffer" },
+			{ "<leader>ct", "<cmd> Telescope treesitter <CR>",         desc = "Treesitter" },
+			{ "<leader>cx", "<cmd> Telescope diagnostics <CR>",        desc = "show errors" },
+			{ "<leader>ff", "<cmd> Telescope fd <CR>",                 desc = "Find files" },
+			{ "<leader>ft", "<cmd> Telescope treesitter <CR>",         desc = "Treesitter" },
+			{ "<leader>sd", "<cmd> Telescope live_grep <CR>",          desc = "Search current directory" },
+			{ "<leader>sw", "<cmd> Telescope grep_string <CR>",        desc = "grep word under cursor" },
+			{ "<leader>gC", "<cmd> Telescope git_commits <CR>",        desc = "see commits of current buffer" },
+			{ "<leader>gS", "<cmd> Telescope git_stash <CR>",          desc = "stash" },
+			{ "<leader>gb", "<cmd> Telescope git_branches <CR>",       desc = "branches" },
+			{ "<leader>gc", "<cmd> Telescope git_commits <CR>",        desc = "commits" },
+			{ "<leader>gs", "<cmd> Telescope git_status <CR>",         desc = "status" },
+		},
 		config = function()
 			require("telescope").setup({
 				defaults = {

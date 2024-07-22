@@ -1,5 +1,8 @@
 local opt = vim.opt
 
+-- set termguicolors
+opt.termguicolors = true
+
 -- relative numbers
 opt.relativenumber = true
 opt.nu = true
