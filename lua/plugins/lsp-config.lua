@@ -48,18 +48,18 @@ return {
 				local opts = { noremap = true, silent = true, buffer = bufnr }
 
 				-- set keybinds
-				vim.keymap.set("n", "gf", "<cmd>Lspsaga finder<CR>", opts) -- show definition, references
-				vim.keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
-				vim.keymap.set("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts) -- see definition and make edits in window
-				vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
-				vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
-				vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
+				vim.keymap.set("n", "gf", "<cmd>Lspsaga finder<CR>", opts)                     -- show definition, references
+				vim.keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)      -- got to declaration
+				vim.keymap.set("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)       -- see definition and make edits in window
+				vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)   -- go to implementation
+				vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)        -- see available code actions
+				vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)             -- smart rename
 				vim.keymap.set("n", "<leader>d", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
 				vim.keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
-				vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
-				vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
-				vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
-				vim.keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts) -- see outline on right hand side
+				vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)       -- jump to previous diagnostic in buffer
+				vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)       -- jump to next diagnostic in buffer
+				vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)                   -- show documentation for what is under cursor
+				vim.keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts)             -- see outline on right hand side
 
 				-- format modifications
 				vim.api.nvim_buf_create_user_command(bufnr, "FormatModifications", function()
@@ -130,17 +130,17 @@ return {
 				single_file_support = not deno_config_exists() and not package_json_exists(),
 			})
 
+			lspconfig.volar.setup({
+				filetypes = { "vue" },
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+
 			lspconfig.tsserver.setup({
 				on_attach = on_attach,
 				capabilities = capabilities,
 				root_dir = lspconfig.util.root_pattern("package.json"),
 				single_file_support = false,
-			})
-
-			lspconfig.volar.setup({
-				filetypes = { "vue" },
-				on_attach = on_attach,
-				capabilities = capabilities,
 			})
 		end,
 	},
@@ -177,4 +177,32 @@ return {
 			vim.keymap.set("n", "<A-S-f>", vim.lsp.buf.format)
 		end,
 	},
+	{
+		"piersolenski/wtf.nvim",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		},
+		opts = {
+			openai_model_id = "gpt-3.5-turbo-16k",
+			context = false,
+		},
+		keys = {
+			{
+				"gw",
+				mode = { "n", "x" },
+				function()
+					require("wtf").ai()
+				end,
+				desc = "Debug diagnostic with AI",
+			},
+			{
+				mode = { "n" },
+				"gW",
+				function()
+					require("wtf").search()
+				end,
+				desc = "Search diagnostic with Google",
+			},
+		},
+	}
 }
