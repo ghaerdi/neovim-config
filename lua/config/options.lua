@@ -42,5 +42,6 @@ opt.undofile = true
 -- Dont make backups
 opt.backup = false
 opt.writebackup = false
+opt.swapfile = false
 
 opt.signcolumn = "yes"
