@@ -11,7 +11,7 @@ return {
 					"cssls",
 					"emmet_ls",
 					"tailwindcss",
-					"tsserver",
+					"ts_ls",
 					"eslint",
 					"svelte",
 					"astro",
@@ -25,7 +25,7 @@ return {
 					"yamlls",
 					"bashls",
 					"taplo",
-					"gopls",
+					-- "gopls",
 					"pylsp",
 					"zls",
 				},
@@ -96,7 +96,7 @@ return {
 				"yamlls",
 				"bashls",
 				"taplo",
-				"gopls",
+				-- "gopls",
 				"pylsp",
 				"zls",
 			}
@@ -136,7 +136,7 @@ return {
 				capabilities = capabilities,
 			})
 
-			lspconfig.tsserver.setup({
+			lspconfig.ts_ls.setup({
 				on_attach = on_attach,
 				capabilities = capabilities,
 				root_dir = lspconfig.util.root_pattern("package.json"),
