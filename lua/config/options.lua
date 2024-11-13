@@ -45,3 +45,4 @@ opt.writebackup = false
 opt.swapfile = false
 
 opt.signcolumn = "yes"
+opt.conceallevel = 2;

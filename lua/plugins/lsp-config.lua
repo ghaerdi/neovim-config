@@ -18,7 +18,6 @@ return {
 
 					-- others
 					"rust_analyzer",
-					"marksman",
 					"dockerls",
 					"lua_ls",
 					"jsonls",
@@ -89,7 +88,6 @@ return {
 
 				-- others
 				"rust_analyzer",
-				"marksman",
 				"dockerls",
 				"lua_ls",
 				"jsonls",
