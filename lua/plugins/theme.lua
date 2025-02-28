@@ -1,3 +1,7 @@
+local hl = function(thing, opts)
+	vim.api.nvim_set_hl(0, thing, opts)
+end
+
 return {
 	{
 		"ellisonleao/gruvbox.nvim",
@@ -25,9 +29,6 @@ return {
 				transparent_mode = not vim.g.neovide,
 			})
 			vim.o.background = "dark" -- or "light" for light mode
-			local hl = function(thing, opts)
-				vim.api.nvim_set_hl(0, thing, opts)
-			end
 
 			hl("SCCursorHead", { link = "GruvboxOrange" })
 			hl("SCCursor", { link = "GruvboxOrange" })

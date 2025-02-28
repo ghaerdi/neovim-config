@@ -7,16 +7,13 @@ return {
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
 		dashboard = {
-			enabled = false,
+			enabled = true,
 			sections = {
-				{
-					{ section = "header" },
-					{ section = "keys", gap = 1, padding = 1 },
-					{ section = "startup" },
-				},
+				{ section = "header" },
+				{ section = "startup" },
 				-- {
 				-- 	section = "terminal",
-				-- 	cmd = "ascii-image-converter ~/Pictures/jellyfish.png -C",
+				-- 	cmd = "ascii-image-converter ~/Pictures/sukuna-chibi.png -C -c",
 				-- 	pane = 2,
 				-- 	random = 10,
 				-- 	indent = 4,
@@ -28,9 +25,6 @@ return {
     bigfile = { enabled = true },
     notifier = { enabled = true },
     quickfile = { enabled = true },
-    words = {
-			enabled = true, -- enable/disable the plugin
-			debounce = 200, -- time in ms to wait before updating
-		},
+    words = { enabled = false },
   },
 }
