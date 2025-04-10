@@ -118,7 +118,7 @@ return {
 						},
 						-- Make the server aware of Neovim runtime files
 						workspace = {
-							checkThirdParty = false,
+							checkThirdParty = true,
 							library = {
 								vim.env.VIMRUNTIME
 								-- Depending on the usage, you might want to add additional paths here.
@@ -143,7 +143,11 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
-			require("lspsaga").setup()
+			require("lspsaga").setup({
+				lightbulb = {
+					enable = false
+				}
+			})
 		end,
 	},
 	{
@@ -164,6 +168,7 @@ return {
 				null_ls.builtins.formatting.prettier,
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.isort,
+				null_ls.builtins.formatting.alejandra,
 				require("none-ls.diagnostics.eslint"),
 			})
 			vim.keymap.set("n", "<A-S-f>", vim.lsp.buf.format)

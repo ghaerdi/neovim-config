@@ -82,13 +82,15 @@ return {
 		{ "gy",              function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto T[y]pe Definition" },
 		{ "<leader>ss",      function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },
 		{ "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end,                   desc = "LSP Workspace Symbols" },
-		{ "<leader>ca",      "<cmd>Lspsaga code_action<CR>" },
-		{ "<leader>rn",      "<cmd>Lspsaga rename<CR>" },
-		{ "<leader>d",       "<cmd>Lspsaga show_cursor_diagnostics<CR>" },
-		{ "[d",              "<cmd>Lspsaga diagnostic_jump_prev<CR>" },
-		{ "]d",              "<cmd>Lspsaga diagnostic_jump_next<CR>" },
-		{ "K",               "<cmd>Lspsaga hover_doc<CR>" },
+		{ "K",               "<cmd>Lspsaga hover_doc<CR>",                                           desc = "Hover Documentation" },
+		{ "<leader>ca",      "<cmd>lua vim.lsp.buf.code_action()<CR>",                               desc = "Code Action" },
+		{ "<leader>rn",      "<cmd>lua vim.lsp.buf.rename()<CR>",                                    desc = "Rename" },
+		{ "[d",              "<cmd>Lspsaga diagnostic_jump_prev<CR>",                                desc = "Previous Diagnostic" },
+		{ "]d",              "<cmd>Lspsaga diagnostic_jump_next<CR>",                                desc = "Next Diagnostic" },
+		{ "<leader>d",       "<cmd>Lspsaga show_cursor_diagnostics<CR>",                             desc = "Show Line Diagnostics" },
 		{ "<leader>o",       "<cmd>Lspsaga outline<CR>" },
+
+
 	},
 	opts = {
 		bigfile = { enabled = true },
