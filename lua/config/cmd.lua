@@ -1,7 +1,5 @@
-local cmd = vim.cmd
-
 -- Highlight on yank
-cmd([[
+vim.cmd([[
   augroup YankHighlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup='Visual', timeout=300}
@@ -9,7 +7,7 @@ cmd([[
 ]])
 
 -- Preserve cursor position when opening files
-cmd([[
+vim.cmd([[
 	augroup LastPosition
 		autocmd!
   	autocmd BufRead * autocmd FileType <buffer> ++once

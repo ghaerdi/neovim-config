@@ -67,13 +67,6 @@ return {
 		end,
 	},
 	{
-		"github/copilot.vim",
-		config = function()
-			vim.cmd([[imap <silent><script><expr> <C-a> copilot#Accept("\<CR>")]])
-			vim.g.copilot_no_tab_map = true
-		end,
-	},
-	{
 		"windwp/nvim-autopairs",
 		config = function()
 			require("nvim-autopairs").setup()

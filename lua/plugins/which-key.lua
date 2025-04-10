@@ -9,13 +9,9 @@ return {
 	keys = {
 		{ "<leader>?",  function() require("which-key").show({ global = false }) end, desc = "show all keymaps" },
 		{ "<leader>b",  group = "buffer" },
-		{ "<leader>bK", "<cmd>%bd<CR>",                                               desc = "Kill all buffers" },
 		{ "<leader>bN", "<cmd>enew<CR>",                                              desc = "New buffer" },
-		{ "<leader>bO", "<cmd>%bd|e#|bd#<CR>",                                        desc = "Kill other buffers" },
 		{ "<leader>b[", "<cmd>bp<CR>",                                                desc = "Previous buffer" },
 		{ "<leader>b]", "<cmd>bn<CR>",                                                desc = "Next buffer " },
-		{ "<leader>bd", "<cmd>bd<CR>",                                                desc = "Kill buffer" },
-		{ "<leader>bk", "<cmd>bd<CR>",                                                desc = "Kill buffer" },
 		{ "<leader>bl", "<C-^>",                                                      desc = "Switch to last buffer" },
 		{ "<leader>bn", "<cmd>bn<CR>",                                                desc = "Next buffer" },
 		{ "<leader>bp", "<cmd>bn<CR>",                                                desc = "Next buffer" },
