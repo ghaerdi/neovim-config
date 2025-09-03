@@ -17,7 +17,6 @@ return {
 					"astro",
 
 					-- others
-					"rust_analyzer",
 					"dockerls",
 					"lua_ls",
 					"jsonls",
