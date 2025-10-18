@@ -56,30 +56,25 @@ return {
 		end
 	},
 	{
-		"gen740/SmoothCursor.nvim",
-		config = function()
-			require("smoothcursor").setup({
-				cursor = "",
-				texthl = "SCCursorHead",
-				linehl = nil,
-				type = "exp",
-				fancy = {
-					enable = true,
-					head = { cursor = "", texthl = "SCCursorHead" },
-					body = {
-						{ cursor = "●", texthl = "SCCursor" },
-						{ cursor = "●", texthl = "SCCursor" },
-						{ cursor = "•", texthl = "SCCursor" },
-						{ cursor = "•", texthl = "SCCursor" },
-						{ cursor = "∙", texthl = "SCCursor" },
-						{ cursor = "∙", texthl = "SCCursor" },
-					},
-				},
-				speed = 20,           -- max is 100 to stick to your current position
-				intervals = 15,       -- tick interval
-				threshold = 1,        -- animate if threshold lines jump
-				disable_float_win = true, -- disable on float window
-			})
-		end,
-	},
+		"sphamba/smear-cursor.nvim",
+		opts = {
+			-- Smear cursor when switching buffers or windows.
+			smear_between_buffers = true,
+
+			-- Smear cursor when moving within line or to neighbor lines.
+			-- Use `min_horizontal_distance_smear` and `min_vertical_distance_smear` for finer control
+			smear_between_neighbor_lines = true,
+
+			-- Draw the smear in buffer space instead of screen space when scrolling
+			scroll_buffer_space = true,
+
+			-- Set to `true` if your font supports legacy computing symbols (block unicode symbols).
+			-- Smears will blend better on all backgrounds.
+			legacy_computing_symbols_support = false,
+
+			-- Smear cursor in insert mode.
+			-- See also `vertical_bar_cursor_insert_mode` and `distance_stop_animating_vertical_bar`.
+			smear_insert_mode = true,
+		},
+	}
 }
