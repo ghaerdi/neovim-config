@@ -1,21 +1,25 @@
 return {
-  "epwalsh/obsidian.nvim",
-  version = "*",
-  lazy = true,
-  event = {
-		"BufReadPre " .. vim.fn.expand "~" .. "/Documents/obsidian_vault/*.md",
-		"BufNewFile " .. vim.fn.expand "~" .. "/Documents/obsidian_vault/*.md",
-  },
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-  },
-  opts = {
-    workspaces = {
-      {
-        name = "personal",
-        path = "~/Documents/obsidian_vault",
-      },
-    },
+	"epwalsh/obsidian.nvim",
+	version = "*",
+	ft = "markdown",
+	lazy = true,
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+	},
+	---@module 'obsidian'
+	---@type obsidian.config
+	opts = {
+		workspaces = {
+			{
+				name = "buf-parent",
+				path = function()
+					return assert(vim.fs.dirname(vim.api.nvim_buf_get_name(0)))
+				end,
+				overrides = {
+					disable_frontmatter = true
+				}
+			},
+		},
 		completion = {
 			nvim_cmp = true,
 			min_chars = 2
@@ -34,7 +38,6 @@ return {
 				opts = { buffer = true, expr = true },
 			}
 		},
-		notes_subdir = "05 - Fleeting",
 		ui = {
 			enable = true,
 			update_debounce = 200,
@@ -66,5 +69,5 @@ return {
 				ObsidianHighlightText = { link = "GruvboxYellow" },
 			},
 		},
-  } 
+	}
 }
