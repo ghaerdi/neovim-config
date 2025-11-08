@@ -87,7 +87,6 @@ return {
 		{ "<leader>rn",      "<cmd>lua vim.lsp.buf.rename()<CR>",                                    desc = "Rename" },
 		{ "[d",              "<cmd>Lspsaga diagnostic_jump_prev<CR>",                                desc = "Previous Diagnostic" },
 		{ "]d",              "<cmd>Lspsaga diagnostic_jump_next<CR>",                                desc = "Next Diagnostic" },
-		{ "<leader>d",       "<cmd>Lspsaga show_cursor_diagnostics<CR>",                             desc = "Show Line Diagnostics" },
 		{ "<leader>o",       "<cmd>Lspsaga outline<CR>" },
 
 
