@@ -10,7 +10,6 @@ local language_servers = {
 	"biome",
 	"svelte",
 	"astro",
-	"denols",
 
 	-- others
 	"rust_analyzer",
@@ -46,52 +45,13 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()
-			-- -- enable keybinds only for when lsp server available
-			-- local on_attach = function(client, bufnr)
-			-- 	-- format modifications
-			-- 	vim.api.nvim_buf_create_user_command(bufnr, "FormatModifications", function()
-			-- 		local lsp_format_modifications = require("lsp-format-modifications")
-			-- 		lsp_format_modifications.format_modifications(client, bufnr)
-			-- 	end, {})
-			-- end
-			--
-			-- -- used to enable autocompletion (assign to every lsp server config)
-			-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 			for _, lsp in ipairs(language_servers) do
 				vim.lsp.enable(lsp)
-				-- require("lspconfig")[lsp].setup({
-				-- 	on_attach = on_attach,
-				-- 	capabilities = capabilities,
-				-- })
-				-- vim.lsp.config[lsp] = {
-				-- 	on_attach = on_attach,
-				-- 	capabilities = capabilities,
-				-- }
 			end
 
 			vim.g.markdown_fenced_languages = {
 				"ts=typescript",
 			}
-
-			-- vim.lsp.config.denols.setup({
-			-- 	on_attach = on_attach,
-			-- 	capabilities = capabilities,
-			-- 	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deno.lock"),
-			-- })
-
-			-- lspconfig.volar.setup({
-			-- 	filetypes = { "vue" },
-			-- 	on_attach = on_attach,
-			-- 	capabilities = capabilities,
-			-- })
-
-			-- require("lspconfig").ts_ls.setup({
-			-- 	on_attach = on_attach,
-			-- 	capabilities = capabilities,
-			-- 	root_dir = lspconfig.util.root_pattern("package.json"),
-			-- 	single_file_support = false,
-			-- })
 
 			vim.lsp.config("lua_ls", {
 				on_init = function(client)
