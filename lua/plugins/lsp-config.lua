@@ -15,6 +15,7 @@ local language_servers = {
 	"rust_analyzer",
 	"docker_language_server",
 	"docker_compose_language_service",
+	"mdx_analyzer",
 	"jsonls",
 	"yamlls",
 	"hyprls",

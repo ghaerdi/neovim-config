@@ -1,5 +1,8 @@
 return {
 	{
+		"davidmh/mdx.nvim",
+	},
+	{
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
 			require("nvim-treesitter.configs").setup({
